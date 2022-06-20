@@ -1,0 +1,22 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+
+<section id="questions">
+
+<div class="row">
+
+<div class="col-lg-12">
+    {{ wtf.quick_form(form,extra_classes="q_title") }}
+
+    <hr>
+
+</div>
+
+</div>
+
+
+</section>
+
+{% include "footer.html" %}

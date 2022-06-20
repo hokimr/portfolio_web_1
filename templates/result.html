@@ -1,0 +1,71 @@
+{% include "header.html" %}
+
+
+<section id="result">
+
+<div class="row">
+      <div class="col-lg-12">
+        <img class="result_img" src="{{ url_for('static', filename='img/result_img.png') }}">
+        <div class="col-lg-12 container">
+
+            {% for i in range(1,16) %}
+            <h2 class="result_answer">{{questions_list[i]}}</h2>
+            <h3 class="result_answer">{{answer_list[i]}}</h3>
+            {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+    <h2 class="result_subtitle"> 울면 안아주고 아프면 병원 가고 힘들어도 같이 놀아 주고 모든게 <br>어렵고 서툴렀지만 하루도 빠짐없이 이렇게 보냈을 부모님의 젊은 시절들.. </h2>
+    <hr>
+
+
+</section>
+
+
+    <h2 class="share_title"> 추억을 카카오톡으로 공유해보세요!</h2>
+    <a id="kakao-link-btn" href="javascript:kakaoShare()">
+    	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+    </a>
+
+
+<!-- kakao sdk 호출 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('16c1f5bc52d2ec2325c56266a2c1309a');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '어버이 자서전',
+        description: '세상에서 가장 소중한 나의 부모님이 들려주는 이야기들 그때 그시절 부모님의 이야기를 손안에 담다.',
+        imageUrl: 'https://ifh.cc/g/d3VyCn.png',
+        link: {
+          mobileWebUrl: 'http://127.0.0.1:5000/result?user={{user_id}}',
+          webUrl: 'http://127.0.0.1:5000/result?user={{user_id}}',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'http://127.0.0.1:5000/result?user={{user_id}}',
+            webUrl: 'http://127.0.0.1:5000/result?user={{user_id}}',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+</script>
+
+{% include "footer.html" %}
