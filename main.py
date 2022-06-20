@@ -77,11 +77,10 @@ def home():
 
 
 
-@app.route('/questions')
+@app.route('/questions',methods=["GET", "POST"])
 def q_page_1():
     form = QuestionsForm()
-    # if request.method == 'POST':
-    if form.validate_on_submit():
+    if request.method == 'POST':
         q1 = request.form.get('q1')
         q2 = request.form.get('q2')
         q3 = request.form.get('q3')
