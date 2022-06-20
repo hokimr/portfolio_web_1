@@ -77,7 +77,7 @@ def home():
 
 
 
-@app.route('/questions',methods=["GET", "POST"])
+@app.route('/questions')
 def q_page_1():
     form = QuestionsForm()
     # if request.method == 'POST':
