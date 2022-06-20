@@ -77,7 +77,7 @@ def home():
 
 
 
-@app.route('/https://parentautobiography.herokuapp.com/questions',methods=["GET", "POST"])
+@app.route('/questions',methods=["GET", "POST"])
 def q_page_1():
     form = QuestionsForm()
     if request.method == 'POST':
