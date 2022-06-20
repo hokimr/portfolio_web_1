@@ -1,11 +1,15 @@
 from flask import Flask,render_template,redirect,url_for,request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from sqlalchemy.orm import session
 from wtforms import Form, BooleanField, StringField, validators,SubmitField
 from wtforms.validators import DataRequired, URL
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+
 import os
+
+load_dotenv()
+mySecret = os.environ.get('MySecret')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -66,7 +70,8 @@ class QuestionsForm1(FlaskForm):
 @app.route('/')
 def home():
 
-    return render_template("index.html")
+    return render_template("index.html",mySecret=mySecret)
+
 
 
 
@@ -163,7 +168,7 @@ def result():
     print(answer)
 
 
-    return render_template("result.html",answer_list=answer,questions_list=questions_list,user_id=user_id)
+    return render_template("result.html",answer_list=answer,questions_list=questions_list,user_id=user_id,mySecret=mySecret)
 
 
 @app.route('/contact')
