@@ -81,13 +81,12 @@ def home():
 def q_page_1():
     form = QuestionsForm()
     if request.method == 'POST':
-
-            q1 = request.form.get('q1')
-            q2 = request.form.get('q2')
-            q3 = request.form.get('q3')
-            q4 = request.form.get('q4')
-            q5 = request.form.get('q5')
-            return redirect(url_for('q_page_2', q1=q1,q2=q2,q3=q3,q4=q4,q5=q5))
+        q1 = request.form.get('q1')
+        q2 = request.form.get('q2')
+        q3 = request.form.get('q3')
+        q4 = request.form.get('q4')
+        q5 = request.form.get('q5')
+        return redirect(url_for('q_page_2', q1=q1,q2=q2,q3=q3,q4=q4,q5=q5))
 
     return render_template("questions_1.html",form=form)
 
