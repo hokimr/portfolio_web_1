@@ -10,11 +10,11 @@ import os
 
 load_dotenv()
 mySecret = os.environ.get('MySecret')
-secret_key = os.environ.get('SECRET_KEY')
+
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = secret_key
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap(app)
 
 ##CONNECT TO DB
