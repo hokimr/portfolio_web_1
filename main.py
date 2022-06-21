@@ -153,7 +153,6 @@ def result():
     answer.append(result.q3)
     answer.append(result.q4)
     answer.append(result.q5)
-    answer.append(result.q5)
     answer.append(result.q6)
     answer.append(result.q7)
     answer.append(result.q8)
@@ -166,7 +165,7 @@ def result():
     answer.append(result.q15)
 
 
-    print(answer)
+
 
 
     return render_template("result.html",answer_list=answer,questions_list=questions_list,user_id=user_id,mySecret=mySecret)
